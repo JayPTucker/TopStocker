@@ -1,0 +1,25 @@
+{
+  "name": "topstocker",
+  "version": "1.0.0",
+  "description": "An Application to help sort, organize, and find top-stock.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayPTucker/TopStocker.git"
+  },
+  "author": "Jay Paul Tucker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JayPTucker/TopStocker/issues"
+  },
+  "homepage": "https://github.com/JayPTucker/TopStocker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  }
+}
