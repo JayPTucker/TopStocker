@@ -1,4 +1,3 @@
-
 // Make a get request to our api route that will return every book
 $.get("/api/all", function(data) {
     // For each book that our server sends us back
@@ -80,11 +79,11 @@ $("#searchSubmit").on("click", function(event) {
 
   // Make an AJAX get request to our api, including the inputted item number.
   $.get("/api/item/" + itemSearched, function(req, res) {
-    console.log(req)
-    console.log(res)
-
+    // IF there isn't anything in the database / an empty array is given out do this:
     if (req[0] == null) {
       alert("This item does not exist in the Database.")
+
+    // Else, if there is a full array / item in the database do this:
     } else {
       console.log("Item Found.")
       // Adding our Data to the page:
@@ -102,9 +101,3 @@ $("#searchSubmit").on("click", function(event) {
     }
   })
 });
-
-    
-
-    
-    // // Log the data to the console
-    // console.log(data);

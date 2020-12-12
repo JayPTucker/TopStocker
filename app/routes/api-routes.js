@@ -49,6 +49,7 @@ module.exports = function(app) {
     })
   });
 
+  // Search by Item Number:
   app.get("/api/item/:item_number", function(req, res) {
     Item.findAll({
       where: {
