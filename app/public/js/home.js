@@ -26,7 +26,6 @@ $.get("/api/all", function(data) {
 // WHEN THE USER PRESSES THE ADD ITEM BUTTON:
 $("#itemSubmit").on("click", function(event) {
   event.preventDefault();
-  console.log("test")
 
   // MAKE A NEW ITEM OBJECT:
   var newItem = {
@@ -64,6 +63,10 @@ $("#itemSubmit").on("click", function(event) {
   $("#isleBox").val("");
   $("#quantityBox").val("");
 });
+
+
+
+
 
 // When user hits the author-search-btn
 $("#searchSubmit").on("click", function(event) {
