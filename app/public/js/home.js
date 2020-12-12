@@ -62,6 +62,7 @@ $("#itemSubmit").on("click", function(event) {
   $("#itemBox").val("");
   $("#bayBox").val("");
   $("#isleBox").val("");
+  $("#quantityBox").val("");
 });
 
 // When user hits the author-search-btn
