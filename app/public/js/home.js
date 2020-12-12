@@ -13,6 +13,7 @@ $.get("/api/all", function(data) {
           row.append("<p>Item Number: " + data[i].item_number + "</p>");
           row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
           row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
+          row.append("<p>Quantity: " + data[i].quantity + "</p>");
           row.append("<p>At " + data[i].createdAt + "</p>");
           row.append("--------------------------")
     
@@ -32,6 +33,7 @@ $("#itemSubmit").on("click", function(event) {
     item_number: $("#itemBox").val().trim(),
     isle_number: $("#isleBox").val().trim(),
     bay_number: $("#bayBox").val().trim(),
+    quantity: $("#quantityBox").val().trim()
   };
 
   console.log(newItem);
@@ -48,6 +50,7 @@ $("#itemSubmit").on("click", function(event) {
       row.append("<p>Item Number: " + newItem.item_number + "</p>");
       row.append("<p>Bay Number: " + newItem.bay_number + "</p>");
       row.append("<p>Isle Number: " + newItem.isle_number + "</p>");
+      row.append("<p>Quantity Number: " + newItem.quantity + "</p>");
       row.append("<p>At " + moment(newItem.createdAt).format("h:mma on dddd") + "</p>");
       row.append("--------------------------")
 
@@ -83,6 +86,7 @@ $    // Adding our Data to the page:
     row.append("<p>Item Number: " + data[0].item_number + "</p>");
     row.append("<p>Isle Number: " + data[0].isle_number + "</p>");
     row.append("<p>Bay Number: " + data[0].bay_number + "</p>");
+    row.append("<p>Quantity: " + data[0].quantity + "</p>");
     row.append("<p>At " + data[0].createdAt + "</p>");
     row.append("--------------------------")
 

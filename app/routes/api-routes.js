@@ -24,7 +24,8 @@ module.exports = function(app) {
     Item.create({
       item_number: req.body.item_number,
       isle_number: req.body.isle_number,
-      bay_number: req.body.bay_number
+      bay_number: req.body.bay_number,
+      quantity: req.body.quantity
     }).then(function(results) {
       res.json(results);
     });
