@@ -60,3 +60,32 @@ $("#itemSubmit").on("click", function(event) {
   $("#bayBox").val("");
   $("#isleBox").val("");
 });
+
+// When user hits the author-search-btn
+$("#searchSubmit").on("click", function(event) {
+  event.preventDefault()
+  console.log("t")
+  // Save the author they typed into the author-search input
+  var itemSearched = $("#searchBox").val().trim();
+
+  // Make an AJAX get request to our api, including the user's author in the url
+  $.get("/api/item/" + itemSearched, function(data) {
+
+    // Log the data to the console
+    console.log(data);
+    // Call our renderBooks function to add our books to the page
+    var row = $("<div>");
+    row.addClass("test")
+
+    row.append("--------------------------")
+    row.append("<p>Item Number: " + data[0].item_number + "</p>");
+    row.append("<p>Isle Number: " + data[0].isle_number + "</p>");
+    row.append("<p>Bay Number: " + data[0].bay_number + "</p>");
+
+    row.append("--------------------------")
+
+    $("#searchResultArea").prepend(row);
+
+  });
+
+});

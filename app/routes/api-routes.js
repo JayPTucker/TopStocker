@@ -29,7 +29,19 @@ module.exports = function(app) {
       res.json(results);
     });
   });
+
+  app.get("/api/item/:item_number", function(req, res) {
+    Item.findAll({
+      where: {
+        item_number: req.params.item_number
+      }
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
+  
 };
+
 
 
 
