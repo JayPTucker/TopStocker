@@ -9,14 +9,14 @@ var Item = require("../models/item.js");
 // Routes
 // =============================================================
 module.exports = function(app) {
-  // Get all books
+  // Get all items
   app.get("/api/all", function(req, res) {
     Item.findAll({}).then(function(results) {
       res.json(results);
     });
   });
 
-  // Add a book
+  // Add an item
   // Send an AJAX POST-request with jQuery
   app.post("/api/new", function(req, res) {
     console.log("Item Data:");

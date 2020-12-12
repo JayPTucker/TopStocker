@@ -64,17 +64,19 @@ $("#itemSubmit").on("click", function(event) {
 // When user hits the author-search-btn
 $("#searchSubmit").on("click", function(event) {
   event.preventDefault()
+
+  // Empties the Search Result Row so no results repeat.
   document.getElementById("searchResultArea").innerHTML = ""
 
-  // Save the author they typed into the author-search input
+  // Save the item they typed in the search input box.
   var itemSearched = $("#searchBox").val().trim();
 
-  // Make an AJAX get request to our api, including the user's author in the url
+  // Make an AJAX get request to our api, including the inputted item number.
   $.get("/api/item/" + itemSearched, function(data) {
 
     // Log the data to the console
     console.log(data);
-$    // Call our renderBooks function to add our books to the page
+$    // Adding our Data to the page:
     var row = $("<div>");
     row.addClass("test")
 
