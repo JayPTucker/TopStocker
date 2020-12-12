@@ -64,7 +64,8 @@ $("#itemSubmit").on("click", function(event) {
 // When user hits the author-search-btn
 $("#searchSubmit").on("click", function(event) {
   event.preventDefault()
-  console.log("t")
+  document.getElementById("searchResultArea").innerHTML = ""
+
   // Save the author they typed into the author-search input
   var itemSearched = $("#searchBox").val().trim();
 
@@ -73,7 +74,7 @@ $("#searchSubmit").on("click", function(event) {
 
     // Log the data to the console
     console.log(data);
-    // Call our renderBooks function to add our books to the page
+$    // Call our renderBooks function to add our books to the page
     var row = $("<div>");
     row.addClass("test")
 
