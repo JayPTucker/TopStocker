@@ -13,6 +13,7 @@ $.get("/api/all", function(data) {
           row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
           row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
           row.append("<p>Quantity: " + data[i].quantity + "</p>");
+          row.append("<button class='edit' data-id='" + data[i].item_number + "'>Edit Quantity</button>");
           row.append("<p>At " + data[i].createdAt + "</p>");
           row.append("--------------------------")
     
