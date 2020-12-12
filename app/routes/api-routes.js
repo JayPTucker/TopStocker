@@ -4,7 +4,7 @@
 
 // Dependencies
 // =============================================================
-var Book = require("../models/item.js");
+var Item = require("../models/item.js");
 
 // Routes
 // =============================================================
@@ -22,9 +22,9 @@ module.exports = function(app) {
     console.log("Item Data:");
     console.log(req.body);
     Item.create({
-      item_number: req.body.item,
-      isle_number: req.body.isle,
-      bay_number: req.body.bay
+      item_number: req.body.item_number,
+      isle_number: req.body.isle_number,
+      bay_number: req.body.bay_number
     }).then(function(results) {
       res.json(results);
     });
