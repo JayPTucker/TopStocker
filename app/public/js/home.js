@@ -78,13 +78,12 @@ $("#searchSubmit").on("click", function(event) {
     console.log(data);
 $    // Adding our Data to the page:
     var row = $("<div>");
-    row.addClass("test")
 
     row.append("--------------------------")
     row.append("<p>Item Number: " + data[0].item_number + "</p>");
     row.append("<p>Isle Number: " + data[0].isle_number + "</p>");
     row.append("<p>Bay Number: " + data[0].bay_number + "</p>");
-
+    row.append("<p>At " + data[0].createdAt + "</p>");
     row.append("--------------------------")
 
     $("#searchResultArea").prepend(row);
