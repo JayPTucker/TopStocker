@@ -40,9 +40,10 @@ module.exports = function(app) {
         });
 
       } else {
-        console.log("This item does exist.")
-        var noitem = "Doesn't Exist"
-        res.json(noitem);
+        function error() {
+          console.log("ERROR.  This item already exists in the database.")
+        }
+        res.json(error())
       }
 
     })

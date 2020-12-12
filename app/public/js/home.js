@@ -40,8 +40,7 @@ $("#itemSubmit").on("click", function(event) {
   // Send an AJAX POST-request with jQuery
   $.post("/api/new", newItem)
     // On success, run the following code
-    .then(function() {
-
+    .done(function() {
       var row = $("<div>");
       row.addClass("item");
 
@@ -54,8 +53,11 @@ $("#itemSubmit").on("click", function(event) {
       row.append("--------------------------")
 
       $("#itemArea").prepend(row);
+    })
 
-    });
+    .fail(function() {
+      alert("Error, this item already exists in the Database.  Please try searching by the item number instead.")
+    })
 
   // Empty each input box by replacing the value with an empty string
   $("#itemBox").val("");
@@ -63,8 +65,6 @@ $("#itemSubmit").on("click", function(event) {
   $("#isleBox").val("");
   $("#quantityBox").val("");
 });
-
-
 
 
 
@@ -79,23 +79,32 @@ $("#searchSubmit").on("click", function(event) {
   var itemSearched = $("#searchBox").val().trim();
 
   // Make an AJAX get request to our api, including the inputted item number.
-  $.get("/api/item/" + itemSearched, function(data) {
+  $.get("/api/item/" + itemSearched, function(req, res) {
+    console.log(req)
+    console.log(res)
 
-    // Log the data to the console
-    console.log(data);
-$    // Adding our Data to the page:
-    var row = $("<div>");
+    if (req[0] == null) {
+      alert("This item does not exist in the Database.")
+    } else {
+      console.log("Item Found.")
+      // Adding our Data to the page:
+      var row = $("<div>");
 
-    row.append("--------------------------")
-    row.append("<p>Item Number: " + data[0].item_number + "</p>");
-    row.append("<p>Isle Number: " + data[0].isle_number + "</p>");
-    row.append("<p>Bay Number: " + data[0].bay_number + "</p>");
-    row.append("<p>Quantity: " + data[0].quantity + "</p>");
-    row.append("<p>At " + data[0].createdAt + "</p>");
-    row.append("--------------------------")
+      row.append("--------------------------")
+      row.append("<p>Item Number: " + req[0].item_number + "</p>");
+      row.append("<p>Isle Number: " + req[0].isle_number + "</p>");
+      row.append("<p>Bay Number: " + req[0].bay_number + "</p>");
+      row.append("<p>Quantity: " + req[0].quantity + "</p>");
+      row.append("<p>At " + req[0].createdAt + "</p>");
+      row.append("--------------------------")
 
-    $("#searchResultArea").prepend(row);
-
-  });
-
+      $("#searchResultArea").prepend(row);
+    }
+  })
 });
+
+    
+
+    
+    // // Log the data to the console
+    // console.log(data);
