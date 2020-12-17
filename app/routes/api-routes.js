@@ -60,8 +60,20 @@ module.exports = function(app) {
     });
   });
 
-  // $.ajax({
-  //   type: UPDATE,
-  // })
+
+
+  app.post("/api/update", function(req, res) {
+    console.log("Update Data:")
+    console.log(req.body)
+
+    Item.update({ 
+      quantity: req.body.newQty
+    }, {
+      where: {item_number: req.body.itemNumber}
+    }).then(function(results) {
+      res.json(results)
+    })
+
+  })
   
 };

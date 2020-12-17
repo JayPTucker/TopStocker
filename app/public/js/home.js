@@ -13,7 +13,7 @@ $.get("/api/all", function(data) {
           row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
           row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
           row.append("<p>Quantity: " + data[i].quantity + "</p>");
-          row.append("<button id='edit-btn' data-id='" + data[i].item_number + "'>Edit Quantity</button>");
+          row.append("<button id='editQty' data-id='" + data[i].item_number + "'>Edit Quantity</button>");
           row.append("<p>At " + data[i].createdAt + "</p>");
           row.append("--------------------------")
     
@@ -108,3 +108,36 @@ $("#searchSubmit").on("click", function(event) {
     }
   })
 });
+
+$("body").on("click", "#editQty", function(event) {
+  event.preventDefault()
+
+  console.log("editQty Btn works.")
+
+  var newQty = prompt("What would you like to change the quantity to?")
+
+  var itemNumber = this.getAttribute('data-id')
+
+  var updateItem = {
+    itemNumber: itemNumber,
+    newQty: newQty
+  }
+  
+  // Grabs the Users Answer for the new Quantity
+  console.log(newQty)
+  // Grabs the data-id aka the item number.
+  console.log(this.getAttribute('data-id'))
+  
+  $.post("/api/update", updateItem)
+    .done(function(){
+      console.log("Quantity Update Success")
+      alert(`Quantity of item ${itemNumber} has been successfully changed to: ${newQty}`)
+    })
+    .fail(function(){
+      console.log("Quanity Update Error")
+      alert(`Unable to change Quantity due to an internal Server error.`)
+    })
+
+
+
+})
