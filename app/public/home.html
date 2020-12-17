@@ -19,33 +19,29 @@
   </head>
   <body>
 
-    <div class="jumbotron">
-      <h1 class="text-center">TopStocker</h1>
-    </div>
-
-    <div class="container">
+    <div class="container-fluid">
 
 
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-6 col-sm-offset-2">
           <h1>Search for an Item:</h1>
           <input class="form-control" type="text" id="searchBox" placeholder="Item Number">
           <button id="searchSubmit" class="btn btn-lg pull-right">Search</button>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+      <div class="row" id="searchResultArea">
+        <!-- <div class="col-sm-6 col-sm-offset-2">
           <h2>Search Results:</h2>
           <hr>
           <div id="searchResultArea"></div>
-        </div>
+        </div> -->
       </div>
 
       <br>
 
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-6 col-sm-offset-2">
           <h1>Add an Item:</h1>
           <input class="form-control" type="text" id="itemBox" placeholder="Item Number">
           <input class="form-control" type="text" id="isleBox" placeholder="Isle Number"></input>
@@ -57,7 +53,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-6 col-sm-offset-2">
           <h2>Items</h2>
           <hr>
           <div id="itemArea"></div>

@@ -13,7 +13,7 @@ $.get("/api/all", function(data) {
           row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
           row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
           row.append("<p>Quantity: " + data[i].quantity + "</p>");
-          row.append("<button class='edit' data-id='" + data[i].item_number + "'>Edit Quantity</button>");
+          row.append("<button id='edit-btn' data-id='" + data[i].item_number + "'>Edit Quantity</button>");
           row.append("<p>At " + data[i].createdAt + "</p>");
           row.append("--------------------------")
     
@@ -22,6 +22,11 @@ $.get("/api/all", function(data) {
         }
     }
 });
+
+
+
+
+
 
 // WHEN THE USER PRESSES THE ADD ITEM BUTTON:
 $("#itemSubmit").on("click", function(event) {
@@ -88,8 +93,9 @@ $("#searchSubmit").on("click", function(event) {
     } else {
       console.log("Item Found.")
       // Adding our Data to the page:
-      var row = $("<div>");
+      var row = $("<div class='col-sm-6'>");
 
+      row.append("<h1>Search Results:</h1>")
       row.append("--------------------------")
       row.append("<p>Item Number: " + req[0].item_number + "</p>");
       row.append("<p>Isle Number: " + req[0].isle_number + "</p>");
