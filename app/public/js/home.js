@@ -12,8 +12,7 @@ $.get("/api/all", function(data) {
           row.append("<p>Item Number: " + data[i].item_number + "</p>");
           row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
           row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
-          row.append("<p>Quantity: " + data[i].quantity + "</p>");
-          row.append("<button id='editQty' data-id='" + data[i].item_number + "'>Edit Quantity</button>");
+          row.append("<span>Quantity: " + data[i].quantity + "  - <button id='editQty' data-id='" + data[i].item_number + "'>Edit Quantity</button>" + "</span>");
           row.append("<p>At " + data[i].createdAt + "</p>");
           row.append("--------------------------")
     
@@ -53,7 +52,7 @@ $("#itemSubmit").on("click", function(event) {
       row.append("<p>Item Number: " + newItem.item_number + "</p>");
       row.append("<p>Bay Number: " + newItem.bay_number + "</p>");
       row.append("<p>Isle Number: " + newItem.isle_number + "</p>");
-      row.append("<p>Quantity Number: " + newItem.quantity + "</p>");
+      row.append("<span>Quantity: " + newItem.quantity + "  - <button id='editQty' data-id='" + newItem.item_number + "'>Edit Quantity</button>" + "</span>");
       row.append("<p>At " + moment(newItem.createdAt).format("h:mma on dddd") + "</p>");
       row.append("--------------------------")
 
@@ -132,6 +131,7 @@ $("body").on("click", "#editQty", function(event) {
     .done(function(){
       console.log("Quantity Update Success")
       alert(`Quantity of item ${itemNumber} has been successfully changed to: ${newQty}`)
+      location.reload();
     })
     .fail(function(){
       console.log("Quanity Update Error")
