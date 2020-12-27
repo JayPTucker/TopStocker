@@ -49,7 +49,7 @@ module.exports = function(app) {
     })
   });
 
-  // Search by Item Number:
+  // Search by Item Number GET:
   app.get("/api/item/:item_number", function(req, res) {
     Item.findAll({
       where: {
@@ -62,6 +62,7 @@ module.exports = function(app) {
 
 
 
+  // Edit Quantity POST:
   app.post("/api/update", function(req, res) {
     console.log("Update Data:")
     console.log(req.body)

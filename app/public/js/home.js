@@ -1,25 +1,26 @@
-// Make a get request to our api route that will return every book
+// Make a get request to our api route that will return every item
 $.get("/api/all", function(data) {
-    // For each book that our server sends us back
-    if (data.length !== 0) {
 
-        for (var i = 0; i < data.length; i++) {
+    // For each item that our server sends us back
+    // if (data.length !== 0) {
+
+    //     for (var i = 0; i < data.length; i++) {
     
-          var row = $("<div>");
-          row.addClass("item");
+    //       var row = $("<div>");
+    //       row.addClass("item");
     
-          row.append("--------------------------")
-          row.append("<p>Item Number: " + data[i].item_number + "</p>");
-          row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
-          row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
-          row.append("<span>Quantity: " + data[i].quantity + "  - <button id='editQty' data-id='" + data[i].item_number + "'>Edit Quantity</button>" + "</span>");
-          row.append("<p>At " + data[i].createdAt + "</p>");
-          row.append("--------------------------")
+    //       row.append("--------------------------")
+    //       row.append("<p>Item Number: " + data[i].item_number + "</p>");
+    //       row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
+    //       row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
+    //       row.append("<span>Quantity: " + data[i].quantity + "  - <button id='editQty' data-id='" + data[i].item_number + "'>Edit Quantity</button>" + "</span>");
+    //       row.append("<p>At " + data[i].createdAt + "</p>");
+    //       row.append("--------------------------")
     
-          $("#itemArea").prepend(row);
+    //       $("#itemArea").prepend(row);
     
-        }
-    }
+    //     }
+    // }
 });
 
 
@@ -108,6 +109,7 @@ $("#searchSubmit").on("click", function(event) {
   })
 });
 
+// Edit Quantity Functionality
 $("body").on("click", "#editQty", function(event) {
   event.preventDefault()
 
@@ -137,7 +139,5 @@ $("body").on("click", "#editQty", function(event) {
       console.log("Quanity Update Error")
       alert(`Unable to change Quantity due to an internal Server error.`)
     })
-
-
 
 })
