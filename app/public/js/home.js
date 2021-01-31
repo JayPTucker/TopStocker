@@ -14,7 +14,7 @@ $.get("/api/all", function(data) {
           row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
           row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
           row.append("<span>Quantity: " + data[i].quantity + "  - <button id='editQty' data-id='" + data[i].item_number + "'>Edit Quantity</button>" + "</span>");
-          row.append("<p>At " + moment(data[i].createdAt).format("h:mma on dddd") + "</p>");
+          row.append("<p>Item created at " + moment(data[i].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
           row.append("--------------------------")
     
           $("#itemArea").prepend(row);
@@ -54,7 +54,7 @@ $("#itemSubmit").on("click", function(event) {
       row.append("<p>Bay Number: " + newItem.bay_number + "</p>");
       row.append("<p>Isle Number: " + newItem.isle_number + "</p>");
       row.append("<span>Quantity: " + newItem.quantity + "  - <button id='editQty' data-id='" + newItem.item_number + "'>Edit Quantity</button>" + "</span>");
-      row.append("<p>At " + moment(newItem.createdAt).format("h:mma on dddd") + "</p>");
+      row.append("<p>Item created at " + moment(newItem.createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
       row.append("--------------------------")
 
       $("#itemArea").prepend(row);
