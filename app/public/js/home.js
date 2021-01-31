@@ -2,25 +2,25 @@
 $.get("/api/all", function(data) {
 
     // For each item that our server sends us back
-    // if (data.length !== 0) {
+    if (data.length !== 0) {
 
-    //     for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) {
     
-    //       var row = $("<div>");
-    //       row.addClass("item");
+          var row = $("<div>");
+          row.addClass("item");
     
-    //       row.append("--------------------------")
-    //       row.append("<p>Item Number: " + data[i].item_number + "</p>");
-    //       row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
-    //       row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
-    //       row.append("<span>Quantity: " + data[i].quantity + "  - <button id='editQty' data-id='" + data[i].item_number + "'>Edit Quantity</button>" + "</span>");
-    //       row.append("<p>At " + data[i].createdAt + "</p>");
-    //       row.append("--------------------------")
+          row.append("--------------------------")
+          row.append("<p>Item Number: " + data[i].item_number + "</p>");
+          row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
+          row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
+          row.append("<span>Quantity: " + data[i].quantity + "  - <button id='editQty' data-id='" + data[i].item_number + "'>Edit Quantity</button>" + "</span>");
+          row.append("<p>At " + moment(data[i].createdAt).format("h:mma on dddd") + "</p>");
+          row.append("--------------------------")
     
-    //       $("#itemArea").prepend(row);
+          $("#itemArea").prepend(row);
     
-    //     }
-    // }
+        }
+    }
 });
 
 
