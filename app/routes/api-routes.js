@@ -74,7 +74,19 @@ module.exports = function(app) {
     }).then(function(results) {
       res.json(results)
     })
-
   })
-  
+
+
+  // Edit Delete POST:
+  app.post("/api/delete", function(req, res) {
+    console.log("===============")
+
+    Item.destroy({ 
+      where: {
+        item_number: req.body.itemNumber
+      }
+    }).then(function(results) {
+      res.json(results)
+    })
+  })  
 };

@@ -15,6 +15,7 @@ $.get("/api/all", function(data) {
           row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
           row.append("<span>Quantity: " + data[i].quantity + "  - <button id='editQty' data-id='" + data[i].item_number + "'>Edit Quantity</button>" + "</span>");
           row.append("<p>Item created on " + moment(data[i].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+          row.append("<button id='deleteItem' data-id='" + data[i].item_number + "'>Delete Item</button><br>")
           row.append("--------------------------")
     
           $("#itemArea").prepend(row);
@@ -22,10 +23,6 @@ $.get("/api/all", function(data) {
         }
     }
 });
-
-
-
-
 
 
 // WHEN THE USER PRESSES THE ADD ITEM BUTTON:
@@ -40,37 +37,45 @@ $("#itemSubmit").on("click", function(event) {
     quantity: $("#quantityBox").val().trim()
   };
 
-  console.log(newItem);
+  if(newItem.item_number == "" || newItem.isle_number == "" || newItem.bay_number == "" || newItem.quantity == "") {
+    alert("Error.  Please make sure every box is filled in properly.")
+  } else {
+    console.log("all data entered in properly")
 
-  // Send an AJAX POST-request with jQuery
-  $.post("/api/new", newItem)
-    // On success, run the following code
-    .done(function() {
-      var row = $("<div>");
-      row.addClass("item");
+    console.log(newItem);
 
-      row.append("--------------------------")
-      row.append("<p>Item Number: " + newItem.item_number + "</p>");
-      row.append("<p>Bay Number: " + newItem.bay_number + "</p>");
-      row.append("<p>Isle Number: " + newItem.isle_number + "</p>");
-      row.append("<span>Quantity: " + newItem.quantity + "  - <button id='editQty' data-id='" + newItem.item_number + "'>Edit Quantity</button>" + "</span>");
-      row.append("<p>Item created on " + moment(newItem.createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
-      row.append("--------------------------")
-
-      $("#itemArea").prepend(row);
-    })
-
-    .fail(function() {
-      alert("Error, this item already exists in the Database.  Please try searching by the item number instead.")
-    })
-
-  // Empty each input box by replacing the value with an empty string
-  $("#itemBox").val("");
-  $("#bayBox").val("");
-  $("#isleBox").val("");
-  $("#quantityBox").val("");
+    // Send an AJAX POST-request with jQuery
+    $.post("/api/new", newItem)
+      // On success, run the following code
+      .done(function() {
+        var row = $("<div>");
+        row.addClass("item");
+  
+        row.append("--------------------------")
+        row.append("<p>Item Number: " + newItem.item_number + "</p>");
+        row.append("<p>Bay Number: " + newItem.bay_number + "</p>");
+        row.append("<p>Isle Number: " + newItem.isle_number + "</p>");
+        row.append("<span>Quantity: " + newItem.quantity + "  - <button id='editQty' data-id='" + newItem.item_number + "'>Edit Quantity</button>" + "</span>");
+        row.append("<p>Item created on " + moment(newItem.createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+        row.append("<button id='deleteItem' data-id='" + newItem.item_number + "'>Delete Item</button><br>")
+        row.append("--------------------------")
+  
+        $("#itemArea").prepend(row);
+      })
+  
+      .fail(function() {
+        alert("Error, this item already exists in the Database.  Please try searching by the item number instead.")
+      })
+  
+    // Empty each input box by replacing the value with an empty string
+    $("#itemBox").val("");
+    $("#bayBox").val("");
+    $("#isleBox").val("");
+    $("#quantityBox").val("");
+  };
 });
 
+  
 
 
 // When user hits the author-search-btn
@@ -83,13 +88,12 @@ $("#searchSubmit").on("click", function(event) {
   // Save the item they typed in the search input box.
   var itemSearched = $("#searchBox").val().trim();
 
-  console.log(itemSearched)
-
   // If Statement to see if the search box is empty or not before performing anymore functions.
   if (itemSearched == "") {
     alert("Error.  Please enter in search data into the box below.")
 
   } else {
+    console.log(itemSearched)
     // Make an AJAX get request to our api, including the inputted item number.
     $.get("/api/item/" + itemSearched, function(req, res) {
       // IF there isn't anything in the database / an empty array is given out do this:
@@ -110,6 +114,7 @@ $("#searchSubmit").on("click", function(event) {
         row.append("<p>Bay Number: " + req[0].bay_number + "</p>");
         row.append("<span>Quantity: " + req[0].quantity + "  - <button id='editQty' data-id='" + req[0].item_number + "'>Edit Quantity</button>" + "</span>");
         row.append("<p>Item created on " + moment(req[0].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+        row.append("<button id='deleteItem' data-id='" + req[0].item_number + "'>Delete Item</button><br>")
         row.append("--------------------------")
 
         $("#searchResultArea").prepend(row);
@@ -150,5 +155,40 @@ $("body").on("click", "#editQty", function(event) {
       console.log("Quanity Update Error")
       alert(`Unable to change Quantity due to an internal Server error.`)
     })
+
+})
+
+$("body").on("click", "#deleteItem", function(event) {
+  event.preventDefault()
+
+  console.log("Delete button works")
+  var itemNumber = this.getAttribute('data-id')
+
+  var deleteConfirm = prompt(`Are you sure you want to delete this item? To delete, type in the item number: ${itemNumber} below.`)
+
+  var deleteItem = {
+    itemNumber: itemNumber,
+    deleteConfirm: deleteConfirm
+  }
+
+  // Logs the item number the user was supposed to type in order to delete the item.
+  // console.log(deleteConfirm)
+  // Grabs the data-id aka the item number.
+  // console.log(this.getAttribute('data-id'))
+
+  if (deleteConfirm == itemNumber) {
+    $.post("/api/delete", deleteItem)
+      .done(function(){
+        alert(`Successfully deleted item:  ${itemNumber}`)
+        location.reload();
+      })
+      .fail(function(){
+        alert("Error. Cannot delete the item.  Try again.")
+      })
+  } else {
+    alert("Item Number does not match.  Please try again.")
+  }
+
+  
 
 })

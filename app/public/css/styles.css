@@ -1,5 +1,5 @@
 .header {
-    background-color: rgb(35, 35, 158);
+    background-color: rgb(41, 41, 185);
     color: white;
     text-shadow: 2px 2px 1px black;
     padding: 5px;
@@ -8,7 +8,7 @@
 }
 
 .header:hover {
-    background-color: rgba(35, 35, 158, 0.897);
+    background-color: rgba(48, 48, 187, 0.897);
     border: 2px solid rgb(255, 255, 255);
 }
 
