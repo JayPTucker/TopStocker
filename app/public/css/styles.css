@@ -38,3 +38,13 @@ div.flex {
     margin: 5px;
     padding: 5px;
 }
+
+.add-item {
+    margin: 1px;
+    padding: 10px;
+}
+
+#itemSubmit {
+    margin-top: 5px;
+    float: left;
+}
