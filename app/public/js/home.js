@@ -88,8 +88,9 @@ $("#searchSubmit").on("click", function(event) {
   // If Statement to see if the search box is empty or not before performing anymore functions.
   if (itemSearched == "") {
     alert("Error.  Please enter in search data into the box below.")
+
   } else {
-      // Make an AJAX get request to our api, including the inputted item number.
+    // Make an AJAX get request to our api, including the inputted item number.
     $.get("/api/item/" + itemSearched, function(req, res) {
       // IF there isn't anything in the database / an empty array is given out do this:
 
