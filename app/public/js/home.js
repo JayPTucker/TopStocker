@@ -14,7 +14,7 @@ $.get("/api/all", function(data) {
           row.append("<p>Bay Number: " + data[i].bay_number + "</p>");
           row.append("<p>Isle Number: " + data[i].isle_number + "</p>");
           row.append("<span>Quantity: " + data[i].quantity + "  - <button id='editQty' data-id='" + data[i].item_number + "'>Edit Quantity</button>" + "</span>");
-          row.append("<p>Item created at " + moment(data[i].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+          row.append("<p>Item created on " + moment(data[i].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
           row.append("--------------------------")
     
           $("#itemArea").prepend(row);
@@ -54,7 +54,7 @@ $("#itemSubmit").on("click", function(event) {
       row.append("<p>Bay Number: " + newItem.bay_number + "</p>");
       row.append("<p>Isle Number: " + newItem.isle_number + "</p>");
       row.append("<span>Quantity: " + newItem.quantity + "  - <button id='editQty' data-id='" + newItem.item_number + "'>Edit Quantity</button>" + "</span>");
-      row.append("<p>Item created at " + moment(newItem.createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+      row.append("<p>Item created on " + moment(newItem.createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
       row.append("--------------------------")
 
       $("#itemArea").prepend(row);
@@ -83,31 +83,41 @@ $("#searchSubmit").on("click", function(event) {
   // Save the item they typed in the search input box.
   var itemSearched = $("#searchBox").val().trim();
 
-  // Make an AJAX get request to our api, including the inputted item number.
-  $.get("/api/item/" + itemSearched, function(req, res) {
-    // IF there isn't anything in the database / an empty array is given out do this:
-    if (req[0] == null) {
-      alert("This item does not exist in the Database.")
+  console.log(itemSearched)
 
-    // Else, if there is a full array / item in the database do this:
-    } else {
-      console.log("Item Found.")
-      // Adding our Data to the page:
-      var row = $("<div class='col-sm-6'>");
+  // If Statement to see if the search box is empty or not before performing anymore functions.
+  if (itemSearched == "") {
+    alert("Error.  Please enter in search data into the box below.")
+  } else {
+      // Make an AJAX get request to our api, including the inputted item number.
+    $.get("/api/item/" + itemSearched, function(req, res) {
+      // IF there isn't anything in the database / an empty array is given out do this:
 
-      row.append("<h1>Search Results:</h1>")
-      row.append("--------------------------")
-      row.append("<p>Item Number: " + req[0].item_number + "</p>");
-      row.append("<p>Isle Number: " + req[0].isle_number + "</p>");
-      row.append("<p>Bay Number: " + req[0].bay_number + "</p>");
-      row.append("<p>Quantity: " + req[0].quantity + "</p>");
-      row.append("<p>At " + req[0].createdAt + "</p>");
-      row.append("--------------------------")
+      if (req[0] == null) {
+        alert("This item does not exist in the Database.")
 
-      $("#searchResultArea").prepend(row);
-    }
-  })
+      // Else, if there is a full array / item in the database do this:
+      } else {
+        console.log("Item Found.")
+        // Adding our Data to the page:
+        var row = $("<div class='col-sm-6'>");
+
+        row.append("<h1>Search Results:</h1>")
+        row.append("--------------------------")
+        row.append("<p>Item Number: " + req[0].item_number + "</p>");
+        row.append("<p>Isle Number: " + req[0].isle_number + "</p>");
+        row.append("<p>Bay Number: " + req[0].bay_number + "</p>");
+        row.append("<p>Quantity: " + req[0].quantity + "</p>");
+        row.append("<p>At " + req[0].createdAt + "</p>");
+        row.append("--------------------------")
+
+        $("#searchResultArea").prepend(row);
+      }
+    })
+  };
 });
+
+  
 
 // Edit Quantity Functionality
 $("body").on("click", "#editQty", function(event) {
