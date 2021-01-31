@@ -108,8 +108,8 @@ $("#searchSubmit").on("click", function(event) {
         row.append("<p>Item Number: " + req[0].item_number + "</p>");
         row.append("<p>Isle Number: " + req[0].isle_number + "</p>");
         row.append("<p>Bay Number: " + req[0].bay_number + "</p>");
-        row.append("<p>Quantity: " + req[0].quantity + "</p>");
-        row.append("<p>At " + req[0].createdAt + "</p>");
+        row.append("<span>Quantity: " + req[0].quantity + "  - <button id='editQty' data-id='" + req[0].item_number + "'>Edit Quantity</button>" + "</span>");
+        row.append("<p>Item created on " + moment(req[0].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
         row.append("--------------------------")
 
         $("#searchResultArea").prepend(row);

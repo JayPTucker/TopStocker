@@ -21,22 +21,30 @@
 
     <div class="container-fluid">
 
+      <div class="row header text-center">
+        <div class="col-md-12">
+          <h1>Top Stocker</h1>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-sm-6 col-sm-offset-2">
           <h1>Search for an Item:</h1>
           <div>
             <h6>Search by Item Number:</h6>
-            <input class="form-control" type="text" id="searchBox" placeholder="Item Number">
-            <button id="searchSubmit" class="btn btn-lg pull-right">Search</button>
+            <div class="flex">
+              <input class="form-control" type="text" id="searchBox" placeholder="Item Number">
+              <button id="searchSubmit" class="btn btn-lg pull-right">Search</button>
+            </div>
+            
           </div>
-          <br>
+          <!-- <br>
           <div>
             <h6>Search by Isle:</h6>
           </div>
           <div>
 
-          </div>
+          </div> -->
           
         </div>
       </div>
@@ -50,12 +58,13 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-2">
           <h1>Add an Item:</h1>
-          <input class="form-control" type="text" id="itemBox" placeholder="Item Number">
-          <input class="form-control" type="text" id="isleBox" placeholder="Isle Number"></input>
-          <input class="form-control" type="text" id="bayBox" placeholder="Bay Number"></input>
-          <input class="form-control" type="text" id="quantityBox" placeholder="Quantity"></input>
-
+          <div class="flex">
+            <input class="form-control" type="text" id="itemBox" placeholder="Item Number"></input>
+            <input class="form-control" type="text" id="isleBox" placeholder="Isle Number"></input>
+            <input class="form-control" type="text" id="bayBox" placeholder="Bay Number"></input>
+            <input class="form-control" type="text" id="quantityBox" placeholder="Quantity"></input>
           <button id="itemSubmit" class="btn btn-lg pull-right">Add item</button>
+          </div>
         </div>
       </div>
 
@@ -74,7 +83,7 @@
 
       <div class="row">
         <div class="col-sm-6 col-sm-offset-2">
-          <h2>Items</h2>
+          <h2>All Items</h2>
           <hr>
           <div id="itemArea"></div>
         </div>
