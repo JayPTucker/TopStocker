@@ -21,76 +21,49 @@
   </head>
   <body>
 
-    <div class="container-fluid">
+    <div class="container-fluid text-center justify-content-center">
 
-      <div class="row header text-center">
+      <div class="row header">
         <div class="col-md-12">
           <h1>Top Stocker</h1>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-2">
+      <div class="row text-center justify-content-center">
+        <div class="col-md-12">
           <h1>Search for an Item:</h1>
           <div>
             <h6>Search by Item Number:</h6>
-            <div class="flex">
-              <input class="form-control" type="text" id="searchBox" placeholder="Item Number">
-              <button id="searchSubmit" class="btn btn-lg pull-right">Search</button>
-            </div>
-            
-          </div>
-          <!-- <br>
-          <div>
-            <h6>Search by Isle:</h6>
-          </div>
-          <div>
-
-          </div> -->
-          
+            <input class="input-box" type="text" id="searchBox" placeholder="Item Number"></input><br>
+            <button id="searchSubmit" class="btn">Search</button>
+          </div>          
         </div>
       </div>
 
-      <div class="row" id="searchResultArea">
+      <div class="row text-center justify-content-center" id="searchResultArea">
         <!-- Search Results go here. -->
       </div>
 
-      <hr>
-
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-2">
+      <div class="row add-item-row">
+        <div class="col-md-12">
           <h1>Add an Item:</h1>
 
-            <div class="inputs">
-              <input class="add-item form-control" type="text" id="itemBox" placeholder="Item Number"></input>
-              <input class="add-item form-control" type="text" id="isleBox" placeholder="Isle Number"></input>
-              <input class="add-item form-control" type="text" id="bayBox" placeholder="Bay Number"></input>
-              <input class="add-item form-control" type="text" id="quantityBox" placeholder="Quantity"></input>
-            </div>
+            <input class="input-box" type="text" id="itemBox" placeholder="Item Number"></input><br>
+            <input class="input-box" type="text" id="isleBox" placeholder="Isle Number"></input><br>
+            <input class="input-box" type="text" id="bayBox" placeholder="Bay Number"></input><br>
+            <input class="input-box" type="text" id="quantityBox" placeholder="Quantity"></input><br>
 
-            <button id="itemSubmit" class="btn btn-lg pull-right">Add item</button>
+            <button id="itemSubmit" class="btn">Add item</button>
           </div>
         </div>
-        <hr>
       </div>
 
-      <!-- WIP SEARCH BY ISLE NUMBER SECTION -->
-      <!-- <div class="row" id="options_row">
-        <select>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-        </select>
-      </div> -->
-
       <div class="row">
-        <div class="col-sm-6 col-sm-offset-2">
+        <div class="col-md-12 text-center">
           <h2>All Items</h2>
-          <div id="itemArea"></div>
+          <div class="row" id="itemArea">
+            <!-- All Items go here -->
+          </div>
         </div>
       </div>
 
