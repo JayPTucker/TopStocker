@@ -32,7 +32,7 @@ module.exports = function(app) {
 
         Item.create({
           item_number: req.body.item_number,
-          isle_number: req.body.isle_number,
+          aisle_number: req.body.aisle_number,
           bay_number: req.body.bay_number,
           quantity: req.body.quantity
         }).then(function(results) {
@@ -89,4 +89,17 @@ module.exports = function(app) {
       res.json(results)
     })
   })  
+
+  app.post("/api/changeLocation", function(req, res) {
+
+    Item.update({ 
+      aisle_number: req.body.newAisle,
+      bay_number: req.body.newBay
+    }, {
+      where: {item_number: req.body.itemNumber}
+    }).then(function(results) {
+      res.json(results)
+    })
+
+  })
 };

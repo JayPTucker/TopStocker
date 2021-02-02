@@ -10,7 +10,7 @@ var sequelize = require("../config/connection.js");
 // Creates a "Item" model that matches up with DB
 var Item = sequelize.define("item", {
   item_number: Sequelize.INTEGER,
-  isle_number: Sequelize.INTEGER,
+  aisle_number: Sequelize.INTEGER,
   bay_number: Sequelize.INTEGER,
   quantity: {
     type: Sequelize.INTEGER,
