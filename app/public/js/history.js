@@ -13,7 +13,11 @@ $.get("/api/getHistory", function(data) {
       
     } else {
 
+      // Gets rid of the | in the array.
       var oldhistoryarray = historyTmp.split('|');
+
+      // Removes the empty spot from the array at the end
+      oldhistoryarray.splice(-1,1)
 
       if (oldhistoryarray.length !== 0) {
     
