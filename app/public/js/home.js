@@ -7,11 +7,10 @@ $.get("/api/all", function(data) {
         for (var i = 0; i < data.length; i++) {
     
           var row = $("<div class='col-md-3 justify-content-center text-center'>");
-          row.addClass("item");
     
           row.append(`<img class="stock-img" src='stock-photo.jpg' width='150' height='150'>`)
           row.append("<p class='item-number'>Item # " + data[i].item_number + "</p>");
-          row.append(`<div class="col-md-12 stock-div"><span><p>On Hand: ${data[i].quantity}</p><button id='editQty' data-id="${data[i].item_number}">Edit Quantity</button></span></div>`)
+          row.append(`<div class="col-md-12 stock-div"><span><p>Top Stock Qty: ${data[i].quantity}</p><button id='editQty' data-id="${data[i].item_number}">Edit Quantity</button></span></div>`)
           row.append(`<div class="location-div"><span><p>Aisle: ${data[i].aisle_number}, Bay: ${data[i].bay_number}</p></p><button id='editLocation' data-id="${data[i].item_number}">Edit Location</button></span></div>`)
           row.append("<button id='deleteItem' data-id='" + data[i].item_number + "'>Delete Item</button><br>")
           row.append("<p class='creation-date'>Created: " + moment(data[i].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
@@ -46,11 +45,10 @@ $("#itemSubmit").on("click", function(event) {
       // On success, run the following code
       .done(function() {
         var row = $("<div class='col-md-3 justify-content-center text-center'>");
-        row.addClass("item");
   
         row.append(`<img class="stock-img" src='stock-photo.jpg' width='150' height='150'>`)
         row.append("<p class='item-number'>Item # " + newItem.item_number + "</p>");
-        row.append(`<div class="col-md-12 stock-div"><span><p>On Hand: ${newItem.quantity}</p><button id='editQty' data-id="${newItem.item_number}">Edit Quantity</button></span></div>`)
+        row.append(`<div class="col-md-12 stock-div"><span><p>Top Stock Qty: ${newItem.quantity}</p><button id='editQty' data-id="${newItem.item_number}">Edit Quantity</button></span></div>`)
         row.append(`<div class="location-div"><span><p>Aisle: ${newItem.aisle_number}, Bay: ${newItem.bay_number}</p></p><button id='editLocation' data-id="${newItem.item_number}">Edit Location</button></span></div>`)
         row.append("<button id='deleteItem' data-id='" + newItem.item_number + "'>Delete Item</button><br>")
         row.append("<p class='creation-date'>Created: " + moment(newItem.createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
@@ -110,11 +108,10 @@ $("#searchSubmit").on("click", function(event) {
         console.log("Item Found.")
         // Adding our Data to the page:
         var row = $("<div class='col-md-3 justify-content-center text-center'>");
-        row.addClass("item");
   
         row.append(`<img class="stock-img" src='stock-photo.jpg' width='150' height='150'>`)
         row.append("<p class='item-number'>Item # " + req[0].item_number + "</p>");
-        row.append(`<div class="col-md-12 stock-div"><span><p>On Hand: ${req[0].quantity}</p><button id='editQty' data-id="${req[0].item_number}">Edit Quantity</button></span></div>`)
+        row.append(`<div class="col-md-12 stock-div"><span><p>Top Stock Qty: ${req[0].quantity}</p><button id='editQty' data-id="${req[0].item_number}">Edit Quantity</button></span></div>`)
         row.append(`<div class="location-div"><span><p>Aisle: ${req[0].aisle_number}, Bay: ${req[0].bay_number}</p></p><button id='editLocation' data-id="${req[0].item_number}">Edit Location</button></span></div>`)
         row.append("<button id='deleteItem' data-id='" + req[0].item_number + "'>Delete Item</button><br>")
         row.append("<p class='creation-date'>Created: " + moment(req[0].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");

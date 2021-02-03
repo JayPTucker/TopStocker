@@ -23,23 +23,40 @@
   
   <div class="container-fluid text-center justify-content-center">
 
-    <div class="row header">
-      <div class="col-md-2">
-        <a href="/">Top Stocker</a>
-      </div>
-      <div class="col-md-2">
-        <a href="/history">History</a>
+    <div class="row pre-nav">
+      <div class="col-md-12">
       </div>
     </div>
+
+    <div class="row navbar">
+      <div class="col-md-2">
+        <p class="title">Top Stocker</p>
+      </div>
+      <div class="col-md-6 nav-shortcuts">
+        <a class="shortcut" href="/">Home</a>
+        <a class="shortcut" href="/history">History</a>
+      </div>
+      <div class="col-md-2">
+        <!-- BLANK BOX FOR SPACING -->
+      </div>
+    </div>
+
+
+
+
+
+
+
+
 
     <div class="row text-center justify-content-center">
       <div class="col-md-12">
         <h1>Search for an Item:</h1>
-        <div>
           <h6>Search by Item Number:</h6>
-          <input class="input-box" type="text" id="searchBox" placeholder="Item Number"></input><br>
-          <button id="searchSubmit" class="btn">Search</button>
-        </div>          
+          <form class="justify-content-center form-inline">
+            <input class="input-box form-control" type="text" id="searchBox" placeholder="Item Number"></input><br>
+            <button id="searchSubmit" class="btn">Search</button>
+          </form>        
       </div>
     </div>
 
@@ -48,23 +65,24 @@
       <!-- Search Results go here. -->
     </div>
 
-    <div class="row add-item-row">
+    <div class="row addItem-row">
       <div class="col-md-12">
         <h1>Add an Item:</h1>
 
-          <input class="input-box" type="text" id="itemBox" placeholder="Item Number"></input><br>
-          <input class="input-box" type="text" id="aisleBox" placeholder="Aisle Number"></input><br>
-          <input class="input-box" type="text" id="bayBox" placeholder="Bay Number"></input><br>
-          <input class="input-box" type="text" id="quantityBox" placeholder="Quantity"></input><br>
-
-          <button id="itemSubmit" class="btn">Add item</button>
+        <form class="justify-content-center form-inline">
+          <input class="input-box form-control" type="text" id="itemBox" placeholder="Item Number"></input><br>
+          <input class="input-box form-control" type="text" id="aisleBox" placeholder="Aisle Number"></input><br>
+          <input class="input-box form-control" type="text" id="bayBox" placeholder="Bay Number"></input><br>
+          <input class="input-box form-control" type="text" id="quantityBox" placeholder="Quantity"></input><br>
+        </form>
+          <button id="itemSubmit" class="btn addItem-btn">Add item</button>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12 text-center">
-        <h2>All Items</h2>
+        <h1>All Items:</h1>
         <div class="row" id="itemArea">
           <!-- All Items go here -->
         </div>

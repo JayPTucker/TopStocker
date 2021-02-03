@@ -28,7 +28,6 @@ if (historyTmp == null) {
 
       for (var i = 0; i < oldhistoryarray.length - 1; i++) {  
         var row = $("<div class='col-md-3 justify-content-center text-center'>");
-        row.addClass("item");
   
         row.append(`<img class="stock-img" src='stock-photo.jpg' width='150' height='150'>`)
         row.append("<p class='item-number'>Item # " + data[i].item_number + "</p>");
