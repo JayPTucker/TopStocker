@@ -16,6 +16,12 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/getHistory", function(req, res) {
+    Item.findAll({}).then(function(results) {
+      res.json(results);
+    })
+  })
+
   // Add an item
   // Send an AJAX POST-request with jQuery
   app.post("/api/new", function(req, res) {
@@ -100,6 +106,5 @@ module.exports = function(app) {
     }).then(function(results) {
       res.json(results)
     })
-
   })
 };

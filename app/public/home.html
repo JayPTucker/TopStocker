@@ -24,8 +24,11 @@
     <div class="container-fluid text-center justify-content-center">
 
       <div class="row header">
-        <div class="col-md-12">
-          <h1>Top Stocker</h1>
+        <div class="col-md-2">
+          <a href="/">Top Stocker</a>
+        </div>
+        <div class="col-md-2">
+          <a href="/history">History</a>
         </div>
       </div>
 
@@ -40,12 +43,7 @@
         </div>
       </div>
 
-      <div>
-        <select id="lastResults">
-          
-        </select>
-      </div>
-
+      
       <div class="row text-center justify-content-center" id="searchResultArea">
         <!-- Search Results go here. -->
       </div>
@@ -76,16 +74,5 @@
     </div>
 
   <script type="text/javascript" src="js/home.js"></script>
-  <script>
-    if (localStorage.getItem("history") != null) {
-      var historyTmp = localStorage.getItem("history");
-      var oldhistoryarray = historyTmp.split('|');
-      $('#lastResults').empty();
-
-      for(var i =0; i<oldhistoryarray.length; i++) {
-          $('#lastResults').append(`<option value="${oldhistoryarray[i]}">${oldhistoryarray[i]}</option>`);
-      }
-    }
-  </script>
   </body>
 </html>

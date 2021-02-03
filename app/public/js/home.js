@@ -17,11 +17,9 @@ $.get("/api/all", function(data) {
           row.append("<p class='creation-date'>Created: " + moment(data[i].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
     
           $("#itemArea").prepend(row);
-    
         }
     }
 });
-
 
 // WHEN THE USER PRESSES THE ADD ITEM BUTTON:
 $("#itemSubmit").on("click", function(event) {
@@ -71,9 +69,6 @@ $("#itemSubmit").on("click", function(event) {
   };
 });
 
-  
-
-
 // When user hits the author-search-btn
 $("#searchSubmit").on("click", function(event) {
   event.preventDefault()
@@ -109,16 +104,6 @@ $("#searchSubmit").on("click", function(event) {
           var historyTmp = `${itemSearched}|`;
           localStorage.setItem("history", historyTmp)
         }
-
-        if (localStorage.getItem("history") != null) {
-          var historyTmp = localStorage.getItem("history");
-          var oldhistoryarray = historyTmp.split('|');
-          $('#lastResults').empty();
-    
-          for(var i =0; i<oldhistoryarray.length; i++) {
-              $('#lastResults').append(`<option value="${oldhistoryarray[i]}">${oldhistoryarray[i]}</option>`);
-          }
-        }
         
         console.log("Item Found.")
         // Adding our Data to the page:
@@ -137,8 +122,6 @@ $("#searchSubmit").on("click", function(event) {
     })
   };
 });
-
-  
 
 // Edit Quantity Functionality
 $("body").on("click", "#editQty", function(event) {
@@ -182,7 +165,7 @@ $("body").on("click", "#editQty", function(event) {
   }
 })
 
-
+// When you click the Delete Button
 $("body").on("click", "#deleteItem", function(event) {
   event.preventDefault()
 
@@ -210,6 +193,7 @@ $("body").on("click", "#deleteItem", function(event) {
 
 })
 
+// When you click the Edit Location Button
 $("body").on("click", "#editLocation", function(event) {
   event.preventDefault()
 
