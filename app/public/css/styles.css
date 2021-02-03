@@ -113,7 +113,6 @@ div.location-div {
     border: 2px solid white;
 }
 
-.creation-date {
+.creation-date, .updated-date {
     font-size: 10px;
-    margin-bottom: 40px;
 }

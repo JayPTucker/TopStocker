@@ -15,17 +15,18 @@ if (historyTmp == null) {
   // Removes the empty spot from the array at the end
   oldhistoryarray.splice(-1,1)
 
+  // Sets our Object up to be used in the POST method
   var historyData = {
     itemNumber: oldhistoryarray
   }
 
+  // Sends our HistoryData Object to api-routes
   $.post("/api/getHistory", historyData)
+
+    // If success from api-routes, it takes the data from that and uses it below
     .done(function(data) {
-      console.log("Item history sent")
-      for (var i = 0; i < oldhistoryarray.length; i++) {
-        // console.log("History Item")
-        console.log(oldhistoryarray[i])
-  
+
+      for (var i = 0; i < oldhistoryarray.length - 1; i++) {  
         var row = $("<div class='col-md-3 justify-content-center text-center'>");
         row.addClass("item");
   
@@ -35,13 +36,15 @@ if (historyTmp == null) {
         row.append(`<div class="location-div"><span><p>Aisle: ${data[i].aisle_number}, Bay: ${data[i].bay_number}</p></p><button id='editLocation' data-id="${data[i].item_number}">Edit Location</button></span></div>`)
         row.append("<button id='deleteItem' data-id='" + data[i].item_number + "'>Delete Item</button><br>")
         row.append("<p class='creation-date'>Created: " + moment(data[i].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+        row.append("<p class='updated-date'>Last Updated: " + moment(data[i].updatedAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
   
         $("#historyArea").prepend(row);
       }
     })
 
+    // If failed to get Item History
     .fail(function() {
-      console.log("item history sending error.")
+      alert("Error.  Unable to gather item history.  Please try again later.")
     })
   
 }

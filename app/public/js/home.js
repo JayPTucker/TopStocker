@@ -15,6 +15,7 @@ $.get("/api/all", function(data) {
           row.append(`<div class="location-div"><span><p>Aisle: ${data[i].aisle_number}, Bay: ${data[i].bay_number}</p></p><button id='editLocation' data-id="${data[i].item_number}">Edit Location</button></span></div>`)
           row.append("<button id='deleteItem' data-id='" + data[i].item_number + "'>Delete Item</button><br>")
           row.append("<p class='creation-date'>Created: " + moment(data[i].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+          row.append("<p class='updated-date'>Last Updated: " + moment(data[i].updatedAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
     
           $("#itemArea").prepend(row);
         }
@@ -53,6 +54,7 @@ $("#itemSubmit").on("click", function(event) {
         row.append(`<div class="location-div"><span><p>Aisle: ${newItem.aisle_number}, Bay: ${newItem.bay_number}</p></p><button id='editLocation' data-id="${newItem.item_number}">Edit Location</button></span></div>`)
         row.append("<button id='deleteItem' data-id='" + newItem.item_number + "'>Delete Item</button><br>")
         row.append("<p class='creation-date'>Created: " + moment(newItem.createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+        row.append("<p class='updated-date'>Last Updated: " + moment(newItem.updatedAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
   
         $("#itemArea").prepend(row);
       })
@@ -116,6 +118,8 @@ $("#searchSubmit").on("click", function(event) {
         row.append(`<div class="location-div"><span><p>Aisle: ${req[0].aisle_number}, Bay: ${req[0].bay_number}</p></p><button id='editLocation' data-id="${req[0].item_number}">Edit Location</button></span></div>`)
         row.append("<button id='deleteItem' data-id='" + req[0].item_number + "'>Delete Item</button><br>")
         row.append("<p class='creation-date'>Created: " + moment(req[0].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+        row.append("<p class='updated-date'>Last Updated: " + moment(req[0].updatedAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+
 
         $("#searchResultArea").prepend(row);
       }
