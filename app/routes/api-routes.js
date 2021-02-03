@@ -17,7 +17,13 @@ module.exports = function(app) {
   });
 
   app.get("/api/getHistory", function(req, res) {
-    Item.findAll({}).then(function(results) {
+    console.log(req.body)
+
+    Item.findAll({
+      // where: {
+      //   item_number: req.body
+      // }
+    }).then(function(results) {
       res.json(results);
     })
   })
