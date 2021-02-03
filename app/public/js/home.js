@@ -121,6 +121,9 @@ $("#searchSubmit").on("click", function(event) {
         $("#searchResultArea").prepend(row);
       }
     })
+
+    $("#searchBox").val("")
+
   };
 });
 

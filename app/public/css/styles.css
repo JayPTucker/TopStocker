@@ -1,4 +1,5 @@
-/* ============================= */
+/* =============================================================== */
+
 p {
     margin: 0;
     padding: 0;
@@ -9,18 +10,8 @@ div {
     margin: 0 !important;
 }
 
-.input-box {
-    transition: all 0.2s ease-in-out;
-    margin: 0px 5px;
-    text-align: center;
-}
-
-.input-box:hover, .input-box:active, .input-box:focus {
-    background-color: rgb(235, 235, 235);
-    box-shadow: 0px 0px 7px black;
-    transform: scale(1.05)
-}
-/* ============================= */
+/* =============================================================== */
+/* =============================================================== */
 
 .navbar {
     background-color: #012169;
@@ -47,7 +38,39 @@ div {
     text-shadow: 1px 1px 3px black;
 }
 
-/* ========================= */
+/* ============================================================ */
+/* ============================================================ */
+
+/* MISC */
+
+.search-btn, .addItem-btn {
+    border: 2px solid rgba(0, 0, 0, 0.349);
+    transition: 0.2s all ease-in-out;
+}
+
+.search-btn:hover, .search-btn:active, .addItem-btn:hover, .addItem-btn:active  {
+    background-color: rgba(32, 151, 32, 0.76);
+    color: white;
+    box-shadow: 0px 0px 7px black;
+    transform: scale(1.05)
+}
+
+
+.input-box {
+    transition: all 0.2s ease-in-out;
+    margin: 0px 5px;
+    text-align: center;
+    border: 2px solid rgba(0, 0, 0, 0.349);
+}
+
+.input-box:hover, .input-box:active, .input-box:focus {
+    background-color: rgb(235, 235, 235);
+    box-shadow: 0px 0px 7px black;
+    transform: scale(1.05)
+}
+
+/* =============================================================== */
+/* =============================================================== */
 
 .addItem-row {
     background-color: rgba(128, 128, 128, 0.253);
@@ -55,4 +78,12 @@ div {
     margin-bottom: 30px !important;
     padding: 30px 0px !important;
     border: 1px solid rgba(0, 0, 0, 0.178);
+    transition: 0.3s all ease-in-out;
 }
+
+.addItem-row:hover {
+    background-color: rgba(128, 128, 128, 0.411);
+}
+
+/* =============================================================== */
+/* =============================================================== */
