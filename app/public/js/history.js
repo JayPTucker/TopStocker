@@ -13,6 +13,8 @@ $.get("/api/getHistory", function(data) {
       
     } else {
 
+      var oldhistoryarray = historyTmp.split('|');
+
       if (oldhistoryarray.length !== 0) {
     
         for (var i = 0; i < oldhistoryarray.length; i++) {
