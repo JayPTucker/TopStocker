@@ -89,6 +89,7 @@ $("#searchSubmit").on("click", function(event) {
     alert("Error.  Please enter in search data into the box below.")
 
   } else {
+
     console.log(itemSearched)
     // Make an AJAX get request to our api, including the inputted item number.
     $.get("/api/item/" + itemSearched, function(req, res) {
@@ -99,6 +100,26 @@ $("#searchSubmit").on("click", function(event) {
 
       // Else, if there is a full array / item in the database do this:
       } else {
+        // Adds Item to Local Storage in Search History:
+        if (localStorage.getItem("history") != null) {
+          var historyTmp = localStorage.getItem("history");
+          historyTmp += `${itemSearched}|`;
+          localStorage.setItem("history", historyTmp);
+        } else {
+          var historyTmp = `${itemSearched}|`;
+          localStorage.setItem("history", historyTmp)
+        }
+
+        if (localStorage.getItem("history") != null) {
+          var historyTmp = localStorage.getItem("history");
+          var oldhistoryarray = historyTmp.split('|');
+          $('#lastResults').empty();
+    
+          for(var i =0; i<oldhistoryarray.length; i++) {
+              $('#lastResults').append(`<option value="${oldhistoryarray[i]}">${oldhistoryarray[i]}</option>`);
+          }
+        }
+        
         console.log("Item Found.")
         // Adding our Data to the page:
         var row = $("<div class='col-md-3 justify-content-center text-center'>");
