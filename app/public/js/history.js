@@ -27,15 +27,44 @@ if (historyTmp == null) {
     .done(function(data) {
 
       for (var i = 0; i < oldhistoryarray.length - 1; i++) {  
-        var row = $("<div class='col-md-3 justify-content-center text-center'>");
-  
-        row.append(`<img class="stock-img" src='stock-photo.jpg' width='150' height='150'>`)
-        row.append("<p class='item-number'>Item # " + data[i].item_number + "</p>");
-        row.append(`<div class="col-md-12 stock-div"><span><p>Top Stock Qty: ${data[i].quantity}</p><button id='editQty' data-id="${data[i].item_number}">Edit Quantity</button></span></div>`)
-        row.append(`<div class="location-div"><span><p>Aisle: ${data[i].aisle_number}, Bay: ${data[i].bay_number}</p></p><button id='editLocation' data-id="${data[i].item_number}">Edit Location</button></span></div>`)
-        row.append("<button id='deleteItem' data-id='" + data[i].item_number + "'>Delete Item</button><br>")
-        row.append("<p class='creation-date'>Created: " + moment(data[i].createdAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
-        row.append("<p class='updated-date'>Last Updated: " + moment(data[i].updatedAt).format("MMMM Do YYYY, h:mm:ss a") + "</p>");
+        var row = $("<div class='item-div col-md-2 justify-content-center text-center'>");
+    
+          row.append(`
+
+            <img class="item-img" src='stock-photo.jpg' width='150' height='150'>
+
+            <p class='item-number'>Item # ${data[i].item_number}</p>
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 stock-div">
+                <span>
+                  <p>Top Stock Qty: ${data[i].quantity}</p>
+                  <button class='btn editQty-btn' id='editQty' data-id="${data[i].item_number}">Edit Quantity</button>
+                </span>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 location-div">
+                <span>
+                  <p>Aisle: ${data[i].aisle_number}, Bay: ${data[i].bay_number}</p>
+                  <button class='btn editLocation-btn' id='editLocation' data-id="${data[i].item_number}">Edit Location</button>
+                </span>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+
+            <button class="btn delete-btn" id='deleteItem' data-id='${data[i].item_number}'>Delete Item</button><br>
+            
+            <p class='creation-date'>Created: ${moment(data[i].createdAt).format("MMMM Do YYYY, h:mm:ss a")}</p>
+            <p class='updated-date'>Last Updated: ${moment(data[i].updatedAt).format("MMMM Do YYYY, h:mm:ss a")}</p>
+          </div>
+
+          `)
+
   
         $("#historyArea").prepend(row);
       }
