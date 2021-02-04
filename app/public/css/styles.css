@@ -192,3 +192,11 @@ div {
     margin-top: 5px;
     font-size: 13px;
 }
+
+/* ======================================== */
+
+.copyright {
+    font-weight: bold;
+    font-size: 25px;
+    margin: 20px;
+}
