@@ -26,7 +26,7 @@ if (historyTmp == null) {
     // If success from api-routes, it takes the data from that and uses it below
     .done(function(data) {
 
-      for (var i = 0; i < oldhistoryarray.length - 1; i++) {  
+      for (var i = 0; i < oldhistoryarray.length; i++) {  
         var row = $("<div class='item-div col-md-2 justify-content-center text-center'>");
     
           row.append(`
