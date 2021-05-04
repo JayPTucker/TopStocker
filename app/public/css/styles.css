@@ -14,7 +14,7 @@ div {
 /* =============================================================== */
 
 .navbar {
-    background-color: #012169;
+    background-color: #284ca0b7;
     box-shadow: 1px 1px 5px black inset;
     padding: 13px !important;
     margin-bottom: 30px !important;
@@ -80,7 +80,7 @@ div {
 /* =============================================================== */
 
 .addItem-row {
-    background-color: rgba(128, 128, 128, 0.253);
+    background-color: rgba(128, 128, 128, 0.13);
     margin-top: 30px !important;
     margin-bottom: 30px !important;
     padding: 30px 0px !important;
@@ -89,7 +89,7 @@ div {
 }
 
 .addItem-row:hover {
-    background-color: rgba(128, 128, 128, 0.411);
+    background-color: rgba(128, 128, 128, 0.26);
 }
 
 /* =============================================================== */
@@ -101,7 +101,7 @@ div {
     padding: 10px !important;
     transition: all 0.2s ease-in-out;
     background-color: rgb(246, 246, 246);
-    box-shadow: 0px 0px 10px black inset;
+    box-shadow: 0px 0px 5px black inset;
     opacity: 90%;
 }
 
