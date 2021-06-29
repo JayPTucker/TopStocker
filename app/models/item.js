@@ -16,8 +16,8 @@ var Item = sequelize.define("item", {
     type: Sequelize.INTEGER,
     allowNull: false,
     defaultValue: '0'
-  },
-  image_URL: Sequelize.STRING
+  }
+  // image_URL: Sequelize.STRING
 });
 
 // Syncs with DB
