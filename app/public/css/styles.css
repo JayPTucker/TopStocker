@@ -14,11 +14,15 @@ div {
 /* =============================================================== */
 
 .navbar {
-    background-color: #284ca0b7;
-    box-shadow: 1px 1px 5px black inset;
+    background-color: rgb(0, 73, 144);
     padding: 13px !important;
     margin-bottom: 30px !important;
     border: 1px solid rgba(0, 0, 0, 0.479);
+    transition: 0.2s all ease-in-out;
+}
+
+.navbar:hover {
+    background-color: rgb(0, 60, 121);
 }
 
 .title {
@@ -34,14 +38,14 @@ div {
 .shortcut {
     margin: 0px 20px;
     color: white;
-    font-size: 25px;
+    font-size: 30px;
     text-shadow: 1px 1px 3px black;
     transition: 0.2s all ease-in-out;
 }
 
 .shortcut:hover {
     color: white;
-    font-size: 28px;
+    font-size: 32px;
 }
 
 /* ============================================================ */
@@ -195,6 +199,15 @@ div {
 }
 
 /* ======================================== */
+
+.copyright-row {
+    background-color: rgba(128, 128, 128, 0.13);
+    border: 1px solid rgba(0, 0, 0, 0.178);
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 
 .copyright {
     font-weight: bold;
