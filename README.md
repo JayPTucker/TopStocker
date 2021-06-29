@@ -16,8 +16,7 @@
  
 ## 📄 Description: <a name='description'></a> 
 **Updated (6/28/21):**
-
-
+Top Stocker is a Full-Stack Web Application that allows Business owners to keep proper track of the stock they have in their store.  However, this isn't necessarily meant for the stock that is on the shelves, but instead it's keeping track of the extra stock they have in the back, or at the top shelf, hence the name, "Top Stocker".  Top Stocker was actually based off of Lowes Home Improvement and how they manage their top stock.  This was made in order for the Top Stock to be easily kept track of.
 
 ## 🔌 Installation: <a name='installation'></a> 
 
